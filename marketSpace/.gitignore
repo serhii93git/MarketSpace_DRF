@@ -1,0 +1,29 @@
+# created by virtualenv automatically
+# Файли та каталоги Django
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+db.sqlite3-journal
+media/
+static/
+
+# Середовище Python
+venv/
+.env
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Файли проекту PyCharm
+.idea/
+*.iml
+*.iws
+*.iws
+*.pyc
+*.pyo
+*.dll
+*.class
+*.pyc
+*.pyo
+*.pdf
