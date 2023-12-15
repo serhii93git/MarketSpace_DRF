@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # APPS:
     'rest_framework',
+    'mptt',  # django-mptt for categories hierarchy
     'users.apps.UsersConfig',
     'products.apps.ProductsConfig',
     'comments.apps.CommentsConfig',
