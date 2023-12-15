@@ -1,5 +1,6 @@
 from django.db import models
 from categories.models import Categories
+from users.models import Users
 
 
 class Product(models.Model):
@@ -12,8 +13,11 @@ class Product(models.Model):
     contacts = models.TextField(max_length=500)
 
     prod_image = models.ManyToManyField(to='Image', blank=True, null=True, related_name='prod_image')
-    category = models.ForeignKey(to=Categories, on_delete=models.PROTECT, related_name='category')
-    created_by = models.ForeignKey(to='Users', on_delete=models.CASCADE, related_name='created_by')
+    category = models.ForeignKey(to=Categories, on_delete=models.PROTECT, related_name='products')
+    created_by = models.ForeignKey(to=Users, on_delete=models.CASCADE, related_name='created_by')
+
+    class Meta:
+        ordering = ['-time_create']
 
     def __str__(self):
         return f"{self.title} - {self.description}"

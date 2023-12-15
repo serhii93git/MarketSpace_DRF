@@ -1,6 +1,7 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
+
 class Categories(MPTTModel):
     cat_name = models.CharField(max_length=50, unique=True)
     cat_description = models.TextField(max_length=500, blank=True, null=True)
