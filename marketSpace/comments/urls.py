@@ -5,6 +5,6 @@ from .views import CommentAddView, CommentUpdateView
 
 
 urlpatterns = [
-    path('add-comment/', CommentAddView.as_view()),
-    path('add-comment/<int:pk>', CommentUpdateView.as_view()),
+    path('comment/', CommentAddView.as_view(), name='create-comment'),
+    path('comment/<int:pk>', CommentUpdateView.as_view(), name='update-comment'),
 ]
