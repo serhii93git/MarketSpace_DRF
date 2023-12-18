@@ -12,7 +12,7 @@ class Product(models.Model):
     is_active = models.BooleanField(default=False)
     contacts = models.TextField(max_length=500)
 
-    prod_image = models.ManyToManyField(to='Image', blank=True, null=True, related_name='prod_image')
+    prod_image = models.ManyToManyField(to='Image', blank=True, related_name='prod_image')
     category = models.ForeignKey(to=Categories, on_delete=models.PROTECT, related_name='products')
     created_by = models.ForeignKey(to=Users, on_delete=models.CASCADE, related_name='created_by')
 
