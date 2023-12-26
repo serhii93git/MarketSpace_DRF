@@ -24,10 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('categories.urls')),
     path('', include('comments.urls')),
-    # path('', include('favorites.urls')),
-    # path('', include('products.urls')),
+    path('', include('favorites.urls')),
+    path('', include('products.urls')),
     # path('', include('user_auth.urls')),
-    # path('', include('users.urls')),
+    path('', include('users.urls')),
 ]
 
 if settings.DEBUG:
