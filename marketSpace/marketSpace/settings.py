@@ -53,6 +53,12 @@ INSTALLED_APPS = [
     'user_auth.apps.UserAuthConfig',
     'categories.apps.CategoriesConfig',
     'favorites.apps.FavoritesConfig',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +69,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # ADD:
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'marketSpace.urls'
@@ -78,6 +87,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # ADD:
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -141,3 +153,41 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.Users'
+
+
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '855166978277-edau1sndkpvjvnmmlilj7fj31opji0vu.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
+}
+
+# URL, на який буде перенаправлено після успішного входу користувача
+LOGIN_REDIRECT_URL = '/prod/'
+
+
+# URL-адреса для входу (вказується для допомоги підсистемі автентифікації)
+# ACCOUNT_LOGIN_URL = '/accounts/login/'
+
+# URL, на який буде перенаправлено після виходу з облікового запису
+# ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
+# URL для сторінки реєстрації
+# ACCOUNT_SIGNUP_URL = '/accounts/signup/'
+
+# URL, на який буде перенаправлено після успішної реєстрації
+# ACCOUNT_SIGNUP_REDIRECT_URL = '/'
