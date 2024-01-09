@@ -191,3 +191,5 @@ LOGIN_REDIRECT_URL = '/prod/'
 
 # URL, на який буде перенаправлено після успішної реєстрації
 # ACCOUNT_SIGNUP_REDIRECT_URL = '/'
+
+ACCOUNT_ADAPTER = 'users.adapter.MyAccountAdapter'
