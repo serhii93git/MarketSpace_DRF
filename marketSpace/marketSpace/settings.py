@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'user_auth.apps.UserAuthConfig',
     'categories.apps.CategoriesConfig',
     'favorites.apps.FavoritesConfig',
+    'search.apps.SearchConfig',
 
     'corsheaders',
 

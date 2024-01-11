@@ -14,6 +14,15 @@ class ProductsListView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
+    def get_queryset(self):
+        sort_by = self.request.query_params.get('sort_by', '-time_create')
+        return Product.objects.all().order_by(sort_by)
+
+    """/prod/?sort_by=-time_create для сортування за датою 
+    створення у низхідному порядку 
+    або /prod/?sort_by=price для сортування 
+    за ціною у зростаючому порядку"""
+
 
 class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

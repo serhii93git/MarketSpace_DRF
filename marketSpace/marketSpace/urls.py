@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/', include('products.urls')),
     # path('', include('user_auth.urls')),
     path('api/', include('users.urls')),
+    path('api/', include('search.urls')),
     path('accounts/', include('allauth.urls')),
 ]
 
