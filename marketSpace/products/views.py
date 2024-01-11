@@ -3,14 +3,14 @@ from .models import Product, Image
 from .serializers import ProductSerializer, ImageSerializer
 
 
-class ProductAddView(generics.CreateAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+# class ProductAddView(generics.CreateAPIView):
+#     permission_classes = [permissions.IsAuthenticated]
+#
+#     queryset = Product.objects.all()
+#     serializer_class = ProductSerializer
 
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
 
-
-class ProductsListView(generics.ListAPIView):
+class ProductsListView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 

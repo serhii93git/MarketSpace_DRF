@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-pn2u(8&p4l0vjxmpe8ylj2-asw^_t1^54x1cxg0cy7zv(_y!nd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'odd-deer-joke.loca.lt', ]
 
 # Application definition
 
@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'categories.apps.CategoriesConfig',
     'favorites.apps.FavoritesConfig',
 
+    'corsheaders',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -72,6 +74,7 @@ MIDDLEWARE = [
 
     # ADD:
     "allauth.account.middleware.AccountMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'marketSpace.urls'
@@ -154,7 +157,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.Users'
 
-
 AUTHENTICATION_BACKENDS = [
 
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -177,8 +179,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 # URL, на який буде перенаправлено після успішного входу користувача
-LOGIN_REDIRECT_URL = '/prod/'
-
+LOGIN_REDIRECT_URL = '/api/prod/'
 
 # URL-адреса для входу (вказується для допомоги підсистемі автентифікації)
 # ACCOUNT_LOGIN_URL = '/accounts/login/'
@@ -193,3 +194,12 @@ LOGIN_REDIRECT_URL = '/prod/'
 # ACCOUNT_SIGNUP_REDIRECT_URL = '/'
 
 ACCOUNT_ADAPTER = 'users.adapter.MyAccountAdapter'
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://thirty-cases-wink.loca.lt',
+    'https://odd-deer-joke.loca.lt',
+]
+
+CSRF_USE_SESSIONS = True
