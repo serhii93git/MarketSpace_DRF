@@ -11,6 +11,7 @@ from .serializers import ProductSerializer, ImageSerializer
 
 
 class ProductsListView(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
@@ -21,7 +22,7 @@ class ProductsListView(generics.ListCreateAPIView):
     """/prod/?sort_by=-time_create для сортування за датою 
     створення у низхідному порядку 
     або /prod/?sort_by=price для сортування 
-    за ціною у зростаючому порядку"""
+    за ціною у зростаючому порядку і тд"""
 
 
 class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -37,4 +38,12 @@ class ImageAddView(generics.CreateAPIView):
     def get_queryset(self):
         return Image.objects.filter(created_by=self.request.user)
 
+    serializer_class = ImageSerializer
+
+class ImageListView(generics.ListAPIView):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
+
+class ImageDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Image.objects.all()
     serializer_class = ImageSerializer

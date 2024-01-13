@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-pn2u(8&p4l0vjxmpe8ylj2-asw^_t1^54x1cxg0cy7zv(_y!nd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'odd-deer-joke.loca.lt', ]
+ALLOWED_HOSTS = ['*',]
 
 # Application definition
 
@@ -201,6 +201,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 CSRF_TRUSTED_ORIGINS = [
     'https://thirty-cases-wink.loca.lt',
     'https://odd-deer-joke.loca.lt',
+    'https://cuddly-singers-lie.loca.lt',
+
 ]
 
 CSRF_USE_SESSIONS = True
