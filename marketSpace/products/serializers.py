@@ -3,6 +3,7 @@ from .models import Product, Image
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    comments = CommentsSerializer(many=True)
     class Meta:
         model = Product
         fields = '__all__'
