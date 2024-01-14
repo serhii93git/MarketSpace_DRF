@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Product, Image
+from comments.serializers import CommentsSerializer
 
 
 class ProductSerializer(serializers.ModelSerializer):
