@@ -8,6 +8,7 @@ class Comments(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='replies')
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
+    product = models.ForeignKey(to='Product', on_delete=models.CASCADE, related_name='comments')
 
     def __str__(self):
         return f'{self.user.username} : {self.text[:50]}'
