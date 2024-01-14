@@ -201,7 +201,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 CSRF_TRUSTED_ORIGINS = [
     'https://thirty-cases-wink.loca.lt',
     'https://odd-deer-joke.loca.lt',
-    'https://cuddly-singers-lie.loca.lt',
+    'http://35.190.198.200:8000/',
 
 ]
 
