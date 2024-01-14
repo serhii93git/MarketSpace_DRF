@@ -1,10 +1,10 @@
 from rest_framework import serializers
 from .models import Product, Image
-from comments.serializers import CommentsSerializer
+from comments.serializers import CommentSerializer 
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    comments = CommentsSerializer(many=True)
+    comments = CommentSerializer(many=True)
     class Meta:
         model = Product
         fields = '__all__'
