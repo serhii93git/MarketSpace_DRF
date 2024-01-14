@@ -1,6 +1,8 @@
 from django.db import models
 from categories.models import Categories
 from users.models import Users
+from comments.model import Comments
+
 
 
 
