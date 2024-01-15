@@ -4,7 +4,7 @@ from comments.serializers import CommentSerializer
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    comments = CommentSerializer(many=True)
+    comments = CommentSerializer(many=True, read_only=True)
     class Meta:
         model = Product
         fields = '__all__'
