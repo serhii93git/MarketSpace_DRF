@@ -18,7 +18,7 @@ class Product(models.Model):
     prod_image = models.ManyToManyField(to='Image', blank=True, related_name='prod_image')
     category = models.ForeignKey(to=Categories, on_delete=models.PROTECT, related_name='products')
     created_by = models.ForeignKey(to=Users, on_delete=models.CASCADE, related_name='created_by')
-    comments = models.ForeignKey(Comments, on_delete=models.CASCADE, related_name='product_comments_here', blank=True)
+    
 
     class Meta:
         ordering = ['-time_create']
