@@ -29,5 +29,4 @@ class Product(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to='prod_image/', blank=True, null=True)
-    description = models.TextField(blank=True)Comments
-Lists are not currently supported in HTML input.
+    description = models.TextField(blank=True)
