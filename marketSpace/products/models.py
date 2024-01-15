@@ -14,8 +14,12 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     is_active = models.BooleanField(default=False)
     contacts = models.TextField(max_length=500)
+    image1 = models.ImageField(upload_to='product_images/', null=True, blank=True)
+    image2 = models.ImageField(upload_to='product_images/', null=True, blank=True)
+    image3 = models.ImageField(upload_to='product_images/', null=True, blank=True)
 
-    prod_image = models.ManyToManyField(to='Image', blank=True, related_name='prod_image')
+    # prod_image = models.ManyToManyField(to='Image', blank=True, related_name='prod_image')
+    
     category = models.ForeignKey(to=Categories, on_delete=models.PROTECT, related_name='products')
     created_by = models.ForeignKey(to=Users, on_delete=models.CASCADE, related_name='created_by')
     
